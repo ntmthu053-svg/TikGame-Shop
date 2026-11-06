@@ -108,6 +108,20 @@
     </div>
   </div>
 </div>
+  
+  <!-- Modal Đăng nhập / Đăng ký -->
+<div class="modal" id="login-modal" style="display:none;">
+    <div class="modal-content" style="max-width: 350px; text-align: center;">
+        <button class="close-btn" onclick="closeLogin()">×</button>
+        <h3>Tài khoản Cửa Hàng</h3>
+        <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Vui lòng đăng nhập để tiếp tục mua hàng</p>
+        
+        <input type="text" id="auth-username" placeholder="Tên đăng nhập hoặc Email" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        <input type="password" id="auth-password" placeholder="Mật khẩu" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+        
+        <button onclick="handleAuth()" class="btn" style="width: 100%; padding: 10px; background: #6366f1; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">Đăng Nhập / Đăng Ký</button>
+    </div>
+</div>
 
 <script>
   // Cấu hình Ngân hàng của bạn
@@ -236,9 +250,30 @@
     if (email) alert('Tính năng tìm đơn theo email: Đã liệt kê toàn bộ đơn đã mua.');
   }
 
-  function showLogin() {
-    alert('Khách hàng có thể mua hàng trực tiếp không cần đăng nhập!');
-  }
+  // Hiển thị khung đăng nhập
+function showLogin() {
+    document.getElementById('login-modal').style.display = 'flex';
+}
+
+// Đóng khung đăng nhập
+function closeLogin() {
+    document.getElementById('login-modal').style.display = 'none';
+}
+
+// Xử lý khi khách bấm nút xác nhận đăng nhập/đăng ký
+function handleAuth() {
+    const user = document.getElementById('auth-username').value.trim();
+    if (!user) {
+        alert('Vui lòng nhập thông tin tài khoản!');
+        return;
+    }
+    // Lưu trạng thái đã đăng nhập vào trình duyệt
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('username', user);
+    alert('Đăng nhập thành công!');
+    closeLogin();
+    location.reload(); // Tải lại trang để cập nhật trạng thái
+}
 
   renderProducts();
 </script>
