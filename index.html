@@ -144,6 +144,14 @@
   }
 
   function openDetail(id) {
+    // Kiểm tra xem khách đã đăng nhập chưa
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (!isLoggedIn) {
+        alert('Vui lòng đăng nhập hoặc đăng ký tài khoản để tiếp tục mua hàng!');
+        showLogin(); // Gọi hàm hiển thị khung đăng nhập
+        return; // Dừng lại, không cho xem chi tiết và mua
+    }
+
     selectedProduct = products.find(p => p.id === id);
     if (!selectedProduct) return;
     document.getElementById('detail-img').src = selectedProduct.img;
@@ -152,7 +160,7 @@
     document.getElementById('detail-cat').innerText = selectedProduct.cat;
     document.getElementById('detail-desc').innerText = selectedProduct.desc;
     showPage('detail');
-  }
+}
 
   function changeDetailImg(src) {
     document.getElementById('detail-img').src = src;
