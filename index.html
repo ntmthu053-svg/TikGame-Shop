@@ -58,12 +58,7 @@
       <div style="display: flex; gap: 24px; flex-wrap: wrap;">
         <div style="flex: 1; min-width: 280px;">
           <img id="detail-img" src="" alt="" style="width:100%; height:250px; object-fit:cover; border-radius:8px;">
-          <div class="gallery">
-            <img src="https://via.placeholder.com/150?text=Thumb+1" onclick="changeDetailImg(this.src)">
-            <img src="https://via.placeholder.com/150?text=Thumb+2" onclick="changeDetailImg(this.src)">
-            <img src="https://via.placeholder.com/150?text=Thumb+3" onclick="changeDetailImg(this.src)">
-            <img src="https://via.placeholder.com/150?text=Thumb+4" onclick="changeDetailImg(this.src)">
-          </div>
+         <div id="thumb-list" style="display: flex; gap: 8px; margin-top: 12px; overflow-x: auto;"></div>
         </div>
         <div style="flex: 1; min-width: 280px;">
           <span style="background:#f1f5f9; padding:4px 8px; border-radius:4px; font-size:0.85rem;" id="detail-cat">Game</span>
@@ -136,10 +131,11 @@
         name: 'Hồ Câu Cá Live TikTok', 
         price: 1000, 
         cat: 'Hồ Câu Cá', 
-        img: [
-            'Hocauca-cd.jpg',  // Ảnh 1: Bàn câu cá tổng quan
-            'Hocauca-cz.jpg',  // Ảnh 2: Cận cảnh người chơi
-            'Hocauca-bdk.jpg'  // Ảnh 3: Bảng điều khiển admin
+        img: 'Hocauca-cd.jpg', // Ảnh chính mặc định hiện khi mở sản phẩm
+        images: [
+            'Hocauca-cd.jpg',  // Ảnh nhỏ 1
+            'Hocauca-cz.jpg',  // Ảnh nhỏ 2
+            'Hocauca-bdk.jpg'  // Ảnh nhỏ 3
         ],
         desc: 'Trò chơi tương tác livestream TikTok: Người xem comment "câu" để xuống hồ, thả tim/tặng quà để giật cá (cá tạp, cá nhỏ, cá vừa, cá to, cá mập). Tích hợp bảng xếp hạng, vòng quay may mắn và bộ điều khiển tự động.' 
     },
