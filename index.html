@@ -22,14 +22,12 @@
     
     /* Product Detail */
     .detail-card { background: white; padding: 24px; border-radius: 12px; border: 1px solid #e2e8f0; margin-top: 20px; }
-    
-    /* Tối ưu hiển thị ảnh dọc và hiệu ứng phóng to */
+
+    /* Tối ưu hiển thị ảnh dọc chi tiết sản phẩm */
     #detail-img {
-        width: 100%;
         max-height: 550px;
         object-fit: contain;
         background: #000;
-        border-radius: 8px;
         transition: transform 0.3s ease;
         cursor: zoom-in;
     }
@@ -66,8 +64,8 @@
     <div class="detail-card">
       <div style="display: flex; gap: 24px; flex-wrap: wrap;">
         <div style="flex: 1; min-width: 280px;">
-          <img id="detail-img" src="" alt="">
-          <div id="thumb-list" style="display: flex; gap: 8px; margin-top: 12px; overflow-x: auto;"></div>
+          <img id="detail-img" src="" alt="" style="width:100%; max-height:550px; object-fit:contain; background:#000; border-radius:8px;">
+         <div id="thumb-list" style="display: flex; gap: 8px; margin-top: 12px; overflow-x: auto;"></div>
         </div>
         <div style="flex: 1; min-width: 280px;">
           <span style="background:#f1f5f9; padding:4px 8px; border-radius:4px; font-size:0.85rem;" id="detail-cat">Game</span>
@@ -195,6 +193,8 @@
     selectedProduct = products.find(p => p.id === id);
     if (!selectedProduct) return;
     document.getElementById('detail-img').src = selectedProduct.img;
+    document.getElementById('detail-img').style.maxHeight = '500px';
+    document.getElementById('detail-img').style.objectFit = 'contain';
 
     document.getElementById('detail-title').innerText = selectedProduct.name;
     document.getElementById('detail-price').innerText = selectedProduct.price.toLocaleString('vi-VN') + ' VNĐ';
@@ -218,16 +218,6 @@
   function changeDetailImg(src) {
     document.getElementById('detail-img').src = src;
   }
-
-  // Phóng to ảnh lớn khi click vào để xem chi tiết nét hơn
-  document.getElementById('detail-img').addEventListener('click', function() {
-      if(!this.src) return;
-      const modal = document.createElement('div');
-      modal.style.cssText = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); display:flex; justify-content:center; align-items:center; z-index:9999; cursor:zoom-out;";
-      modal.innerHTML = `<img src="${this.src}" style="max-width:90%; max-height:90%; object-fit:contain; border-radius:8px;">`;
-      modal.onclick = () => document.body.removeChild(modal);
-      document.body.appendChild(modal);
-  });
 
   function startBuyCurrent() {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -316,7 +306,17 @@
     closeLogin();
     location.reload();
   }
-
+  
+// Phóng to ảnh lớn khi click vào
+  document.getElementById('detail-img').addEventListener('click', function() {
+      if(!this.src) return;
+      const modal = document.createElement('div');
+      modal.style.cssText = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); display:flex; justify-content:center; align-items:center; z-index:9999; cursor:zoom-out;";
+      modal.innerHTML = `<img src="${this.src}" style="max-width:90%; max-height:90%; object-fit:contain; border-radius:8px;">`;
+      modal.onclick = () => document.body.removeChild(modal);
+      document.body.appendChild(modal);
+  });
+  
   renderProducts();
 </script>
 
