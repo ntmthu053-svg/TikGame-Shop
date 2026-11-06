@@ -136,7 +136,11 @@
         name: 'Hồ Câu Cá Live TikTok', 
         price: 1000, 
         cat: 'Hồ Câu Cá', 
-        img: 'ĐƯỜNG_DẪN_ẢNH_1_CỦA_BẠN', // Dán link ảnh chụp tổng quan hồ câu cá vào đây
+        img: [
+            'Hocauca-cd.jpg',  // Ảnh 1: Bàn câu cá tổng quan
+            'Hocauca-cz.jpg',  // Ảnh 2: Cận cảnh người chơi
+            'Hocauca-bdk.jpg'  // Ảnh 3: Bảng điều khiển admin
+        ],
         desc: 'Trò chơi tương tác livestream TikTok: Người xem comment "câu" để xuống hồ, thả tim/tặng quà để giật cá (cá tạp, cá nhỏ, cá vừa, cá to, cá mập). Tích hợp bảng xếp hạng, vòng quay may mắn và bộ điều khiển tự động.' 
     },
     { id: 'g2', name: 'Source Code Web Bán Game', price: 150000, cat: 'Source Code', img: 'https://via.placeholder.com/400x250?text=Web+Shop+Code', desc: 'Mã nguồn website tích hợp thanh toán tự động qua SePay, dễ dàng tùy biến.' },
@@ -175,10 +179,27 @@
     selectedProduct = products.find(p => p.id === id);
     if (!selectedProduct) return;
     document.getElementById('detail-img').src = selectedProduct.img;
+    // Chỉnh kích thước hiển thị cho ảnh dọc 1080x1920
+    document.getElementById('detail-img').style.maxHeight = '500px';
+    document.getElementById('detail-img').style.objectFit = 'contain';
+
     document.getElementById('detail-title').innerText = selectedProduct.name;
     document.getElementById('detail-price').innerText = selectedProduct.price.toLocaleString('vi-VN') + ' VNĐ';
     document.getElementById('detail-cat').innerText = selectedProduct.cat;
     document.getElementById('detail-desc').innerText = selectedProduct.desc;
+
+    // Render danh sách ảnh nhỏ (thumbnails) nếu có
+    const thumbsContainer = document.getElementById('thumb-list');
+    if (thumbsContainer && selectedProduct.images) {
+        thumbsContainer.innerHTML = selectedProduct.images.map(imgSrc => `
+            <img src="${imgSrc}" 
+                 onclick="changeDetailImg('${imgSrc}')" 
+                 style="width: 70px; height: 120px; object-fit: cover; cursor: pointer; border: 2px solid #ddd; border-radius: 6px; margin-right: 8px;">
+        `).join('');
+    } else if (thumbsContainer) {
+        thumbsContainer.innerHTML = '';
+    }
+
     showPage('detail');
 }
 
