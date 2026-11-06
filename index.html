@@ -178,9 +178,7 @@
       </div>
 
       <div class="status-box" id="payment-status">Đang chờ quét mã thanh toán...</div>
-      <button onclick="simulatePaymentSuccess(currentOrderCode); onPaymentSuccess();" style="margin-top: 10px; width: 100%; background: #16a34a; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem;">✅ Xác nhận đã chuyển khoản (Mở khóa file)</button>
-    </div>
-  </div>
+<button onclick="document.getElementById('payment-status').innerHTML = '✅ Đã ghi nhận! Đang chuyển hướng sang Zalo để gửi bill...'; setTimeout(() => { window.location.href='https://zalo.me/0347865344'; }, 1000);" style="margin-top: 10px; width: 100%; background: #2563eb; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem;">📨 Tôi đã chuyển khoản (Nhấn để gửi bill qua Zalo)</button>  </div>
 </div>
   
 <!-- Modal Đăng nhập / Đăng ký -->
@@ -214,7 +212,7 @@
         img: 'Hocauca-cd.jpg', 
         images: ['Hocauca-cd.jpg', 'Hocauca-cz.jpg', 'Hocauca-bdk.jpg'],
         desc: 'Trò chơi tương tác livestream TikTok: Người xem comment "câu" để xuống hồ, thả tim/tặng quà để giật cá (cá tạp, cá nhỏ, cá vừa, cá to, cá mập). Tích hợp bảng xếp hạng, vòng quay may mắn và bộ điều khiển tự động.',
-        driveLink: 'https://drive.google.com/drive/folders/LINK_DRIVE_HO_CAU_CA' 
+        driveLink: 'https://drive.google.com/drive/folders/16_YKyzc_mwbQBYigq345y9tXwYuS4qTj?usp=sharing' 
     },
     { 
         id: 'g2', 
