@@ -79,12 +79,85 @@
         </div>
       </div>
 
-      <div style="margin-top: 30px; background:#fafafa; padding:16px; border-radius:8px;">
-        <h3>📝 Ghi chú về game</h3>
-        <ul>
-          <li>File tải được mở khoá ngay sau khi thanh toán thành công.</li>
-          <li>Cần tải lại? Vào mục "Đơn của tôi" để lấy lại file bất cứ lúc nào.</li>
-          <li>Cần hỗ trợ cài đặt, hãy liên hệ người bán.</li>
+      <div style="margin-top: 30px; background:#fafafa; padding:20px; border-radius:8px; line-height: 1.6; font-size: 0.95rem;">
+        <h3 style="color: #8b5cf6; margin-top: 0;">📖 HƯỚNG DẪN CÀI VÀ CHẠY GAME "HỒ CÂU CÁ" TRÊN TIKTOK LIVE</h3>
+        
+        <p><strong>📦 TRONG GÓI CÓ 5 FILE (giữ chung một thư mục):</strong></p>
+        <ul style="margin-top: -5px;">
+          <li><code>Hồ_Câu_Cá.html</code> - game</li>
+          <li><code>bridge.js</code> - cầu nối lấy bình luận, tim, quà từ live[cite: 11]</li>
+          <li><code>package.json</code> - danh sách thư viện cần cài[cite: 11]</li>
+          <li><code>chay_bridge.bat</code> - bấm đúp để chạy cầu nối[cite: 11]</li>
+          <li><code>bang_dieu_khien.html</code> - bảng nút thử (mở bằng Chrome, không bắt buộc)[cite: 11]</li>
+        </ul>
+
+        <p><strong>⚙️ BƯỚC 1. CÀI NODE.JS (chỉ làm một lần)</strong></p>
+        <ul style="margin-top: -5px;">
+          <li>Vào <a href="https://nodejs.org" target="_blank">https://nodejs.org</a>, bấm nút tải bản LTS cho Windows[cite: 11].</li>
+          <li>Mở file vừa tải, bấm Next đến hết (giữ nguyên các lựa chọn mặc định), bấm Install[cite: 11].</li>
+        </ul>
+
+        <p><strong>📁 BƯỚC 2. ĐẶT FILE VÀO THƯ MỤC</strong></p>
+        <ul style="margin-top: -5px;">
+          <li>Giải nén gói này vào thư mục có tên <strong>KHÔNG DẤU, KHÔNG KHOẢNG TRẮNG</strong>, ví dụ: <code>C:\hocauca</code>[cite: 11]</li>
+          <li>Kiểm tra trong thư mục có đủ 5 file như trên[cite: 11].</li>
+        </ul>
+
+        <p><strong>🔴 BƯỚC 3. BẬT LIVE TIKTOK</strong></p>
+        <ul style="margin-top: -5px;">
+          <li>Bắt đầu phiên live trên tài khoản của bạn <strong>TRƯỚC</strong> khi chạy bước 4 (chưa live thì cầu nối không vào được phòng)[cite: 11].</li>
+        </ul>
+
+        <p><strong>🌉 BƯỚC 4. CHẠY CẦU NỐI</strong></p>
+        <ul style="margin-top: -5px;">
+          <li>Bấm đúp file <code>chay_bridge.bat</code>[cite: 11]</li>
+          <li>Cửa sổ đen hiện ra, hỏi "Ten TikTok": gõ tên tài khoản TikTok đang live (<strong>KHÔNG gõ dấu @</strong>), rồi bấm Enter. Nếu muốn dùng tên đã gợi ý thì chỉ bấm Enter[cite: 11].</li>
+          <li>Lần đầu máy tự cài thư viện (cần có mạng, đợi vài giây đến một phút)[cite: 11].</li>
+          <li>Khi thấy dòng <em>"Đã vào phòng live của @tên_bạn"</em> là xong[cite: 11].</li>
+          <li>Để cửa sổ đen này <strong>MỞ SUỐT</strong> buổi live. Đóng cửa sổ là game mất kết nối[cite: 11].</li>
+        </ul>
+
+        <p><strong>obs 🖥️ BƯỚC 5. THIẾT LẬP OBS (phần hình ảnh đưa lên live)</strong></p>
+        <ul style="margin-top: -5px;">
+          <li>OBS &gt; Cài đặt &gt; Video: đặt Base Canvas và Output Resolution là <strong>1080x1920</strong> (khung dọc 9:16)[cite: 11].</li>
+          <li>Trong khung Sources bấm dấu +, chọn "Trình duyệt" (Browser), đặt tên, bấm OK[cite: 11].</li>
+          <li><strong>BỎ TICK</strong> ô "Tập tin trên máy" (Local file)[cite: 11].</li>
+          <li>Ở ô URL dán đúng dòng này (nếu để thư mục ở <code>C:\hocauca</code>):<br>
+            <code>file:///C:/hocauca/H%E1%BB%93_C%C3%A2u_C%C3%A1.html?obs</code><br>
+            Nếu để thư mục khác thì đổi phần "C:/hocauca" cho đúng (dùng dấu / thay cho \).<br>
+            <em>Mẹo:</em> bấm đúp file Hồ_Câu_Cá.html để mở bằng Chrome, copy địa chỉ trên thanh địa chỉ, dán vào OBS rồi thêm <code>?obs</code> vào cuối[cite: 11].
+          </li>
+          <li>Chiều rộng: <strong>1080</strong>, Chiều cao: <strong>1920</strong>[cite: 11].</li>
+          <li><strong>TICK</strong> ô "Điều khiển âm thanh qua OBS" (Control audio via OBS) để người xem nghe được giọng đọc và tiếng pháo tay[cite: 11].</li>
+          <li>Bấm OK. Muốn tải lại game: chuột phải vào nguồn &gt; "Refresh cache of current page"[cite: 11].</li>
+          <li>Lần đầu bấm chuột phải vào nguồn &gt; "Tương tác" (Interact), bấm vào game một lần để trình duyệt cho phép phát tiếng[cite: 11].</li>
+        </ul>
+
+        <p><strong>🎯 BƯỚC 6. THỬ NGAY</strong></p>
+        <ul style="margin-top: -5px;">
+          <li>Nhờ một người xem bình luận "câu" (hoặc "Câu"): tên họ hiện trong hồ[cite: 11].</li>
+          <li>Cửa sổ đen sẽ in từng dòng, ví dụ: <code>10:32:05 chat Minh câu</code>[cite: 11]</li>
+          <li>Muốn thử không cần người xem: bấm đúp <code>bang_dieu_khien.html</code> (mở bằng Chrome), thấy "Đã nối bridge" thì bấm các nút thử (cá mập, quay vòng, thêm người ảo...)[cite: 11].</li>
+        </ul>
+
+        <p><strong>🎮 CÁCH CHƠI (nói cho người xem)</strong></p>
+        <ul style="margin-top: -5px;">
+          <li>Bình luận "câu" để xuống hồ câu[cite: 11].</li>
+          <li>Thả tim: cứ 100 tim thì giật một con cá. Tặng quà: giật cá to hơn[cite: 11].</li>
+          <li>Đủ tim thì vòng quay chạy (cá cần câu, mưa tim, cá béo, thi câu nhanh, giông bão, tìm cá hiếm, cá mập vào hồ)[cite: 11].</li>
+          <li>Khi cá mập cắn câu, mọi người tặng quà để tăng tỉ lệ kéo được cá mập[cite: 11].</li>
+          <li>Bảng xếp hạng bên trái: top 5 người câu được nhiều kg nhất[cite: 11].</li>
+          <li>Ai không tương tác trong 3 phút sẽ rời hồ và mất số kg[cite: 11].</li>
+        </ul>
+
+        <p><strong>⚠️ LỖI THƯỜNG GẶP</strong></p>
+        <ul style="margin-top: -5px;">
+          <li><em>"node không được nhận ra"</em> / <em>"'node' is not recognized"</em>: chưa cài Node.js hoặc chưa mở lại cửa sổ. Cài ở Bước 1 rồi bấm đúp <code>chay_bridge.bat</code> lại[cite: 11].</li>
+          <li><em>"Chưa vào được phòng"</em>: chưa bật live hoặc gõ sai tên TikTok. Bật live, đóng cửa sổ đen, mở lại[cite: 11].</li>
+          <li><em>"EADDRINUSE"</em> hoặc báo cổng 8765 đang dùng: còn một cửa sổ cầu nối cũ đang chạy. Đóng hết cửa sổ đen cũ rồi chạy lại[cite: 11].</li>
+          <li>Game hiện mà không có người: kiểm tra góc phải game có dòng "đã vào phòng live". Không có thì chạy lại cầu nối[cite: 11].</li>
+          <li>Dòng có dấu "!" trong cửa sổ đen: chụp màn hình gửi người hỗ trợ[cite: 11].</li>
+          <li>Chỉ mở <strong>MỘT</strong> trang game duy nhất (trong OBS). Đừng mở thêm trang game ở Chrome khi live[cite: 11].</li>
         </ul>
       </div>
     </div>
