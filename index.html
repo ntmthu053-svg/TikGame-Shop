@@ -167,6 +167,17 @@
   }
 
   function startBuyCurrent() {
+    // Kiểm tra xem khách đã đăng nhập chưa
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (!isLoggedIn) {
+        alert('Vui lòng đăng nhập hoặc đăng ký tài khoản để tiếp tục mua hàng!');
+        showLogin();
+        return;
+    }
+
+    if (!selectedProduct) return;
+    // ... (các dòng code cũ phía dưới giữ nguyên)
+}
     if (!selectedProduct) return;
     currentOrderCode = 'DH' + Math.floor(100000 + Math.random() * 900000);
     
