@@ -278,12 +278,16 @@
   function onPaymentSuccess() {
     if (checkInterval) clearInterval(checkInterval);
     document.getElementById('payment-status').className = 'status-box status-paid';
+    
+    // Lấy link Google Drive riêng của sản phẩm đang mua, nếu không có thì dùng link mặc định
+    const productLink = (selectedProduct && selectedProduct.driveLink) ? selectedProduct.driveLink : 'https://drive.google.com';
+
     document.getElementById('payment-status').innerHTML = `
-      ✅ <strong>Thanh toán thành công!</strong><br>
-      Đơn hàng ${currentOrderCode} đã được mở khóa.<br><br>
-      <a class="download-btn" href="https://drive.google.com/drive/folders/16_YKyzc_mwbQBYigq345y9tXwYuS4qTj?usp=sharing" target="_blank">📥 Tải file sản phẩm ngay</a>
+        ✅ <strong>Thanh toán thành công!</strong><br>
+        Đơn hàng ${currentOrderCode} đã được mở khóa.<br><br>
+        <a class="download-btn" href="${productLink}" target="_blank">📥 Tải file sản phẩm ngay</a>
     `;
-  }
+}
 
   function showOrders() {
     const email = prompt('Nhập Email bạn đã dùng khi mua hàng:');
